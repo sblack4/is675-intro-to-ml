@@ -6,7 +6,8 @@ lint:
 run: 
 	@python3 -m jupyter notebook
 
-precommit:
+.PHONY: clean
+clean:
 	# running the server dirties commits
 	@echo 'Checking out all unsaved files'
 	@git checkout -- Homework/*

@@ -74,7 +74,7 @@ def plot__kmeans_scatter_in_2d(data_tuple):
 
     print(data_tuple)
     fig = plt.figure()
-    fig.title(lable=f'{data_tuple[:][0]}, "vs", {data_tuple[:][1]}')
+    fig.suptitle(f'{data_tuple[:][0]} vs {data_tuple[:][1]}')
 
     for i in range(len(data_tuple)):
         plt.plot(data_tuple[i][0], data_tuple[i][1], colors[labels[i]], markersize = 7)
@@ -92,14 +92,14 @@ for item in pairs:
 # In[9]:
 
 
-silhouette_score(data_tuple, kmeans_model.labels_, metric='sqeuclidean')
-
+silhouette_coefficient = silhouette_score(X, kmeans_model.labels_, metric='sqeuclidean')
+silhouette_coefficient
 
 # ## 7. Assuming that the data is ordered by class labels, print the average silhouette coefficient for each class. (20 points)
 
 # In[ ]:
 
-
+silhouette_samples(X, labels, metric='sqeuclidean')
 
 
 
